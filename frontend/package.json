@@ -39,7 +39,8 @@
     "styled-components": "^6.1.1",
     "url": "^0.11.3",
     "web-vitals": "^2.1.4",
-    "web3.storage": "^4.5.5"
+    "web3.storage": "^4.5.5",
+    "web3modal": "^1.9.12"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -66,13 +67,13 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^3.1.0",
     "assert": "^2.0.0",
     "browserify-zlib": "^0.2.0",
     "crypto-browserify": "^3.12.0",
     "https-browserify": "^1.0.0",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
+    "prettier": "^3.1.0",
     "process": "^0.11.10",
     "react-app-rewired": "^2.2.1",
     "stream-browserify": "^3.0.0",

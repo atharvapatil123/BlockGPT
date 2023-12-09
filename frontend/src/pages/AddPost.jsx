@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { Database } from "@tableland/sdk";
 import { Wallet, getDefaultProvider, ethers } from "ethers";
 import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
-import {addStakedAmount} from "../context/StakeContractContext"
+import {addStakedAmount} from "../../context/StakeContractContext"
 import HomeIcon from "@mui/icons-material/Home";
 import {
   Add,

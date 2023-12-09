@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { ethers } from "ethers";
 import Wenb3Model from "web3modal";
-import stakeContract from "../contracts/Stake.json";
+import stakeContract from "../../contracts/StakeContract.json";
 
 const StakeContractAddress = "0xeCF14980e40f8BAf38a30558a6D26175DF1D1707";
 const StakeContractABI = stakeContract.abi;
