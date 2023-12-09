@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 import { Database } from "@tableland/sdk";
 import { Wallet, getDefaultProvider, ethers } from "ethers";
 import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
-import {addStakedAmount} from "../../context/StakeContractContext"
 import HomeIcon from "@mui/icons-material/Home";
 import {
   Add,
@@ -32,6 +31,7 @@ import {
   useContentPair,
 } from "@waku/react";
 import protobuf from "protobufjs";
+import { useStake } from "../context/StakeContractContext";
 
 const baseStyle = {
   flex: 1,
@@ -70,6 +70,8 @@ const AddPost = () => {
 
   const { encoder, decoder } = useContentPair();
   const { push } = useLightPush({ node, encoder });
+
+  const { addStakedAmount } = useStake();
 
   // Create a message structure using Protobuf
   const ReportMessageFormat = new protobuf.Type("ReportMessage")
@@ -138,8 +140,9 @@ const AddPost = () => {
     };
 
     if (postType == "crime") {
-      const response = await  addStakedAmount();
-      if(response){
+      const response = await addStakedAmount();
+      console.log("response", response);
+      if (response) {
         if (isPrivate) {
           //waku create topic
           const reportContent = {
@@ -148,6 +151,7 @@ const AddPost = () => {
             caption: postCaption,
           };
           await createPrivateWakuChannel(reportContent);
+          console.log("here")
         } else {
           // tableland
           await addPostToDB(
@@ -161,12 +165,10 @@ const AddPost = () => {
           );
         }
         toast.success("Post created successfully!");
-      }else{
+      } else {
         toast.error("Something went wrong while adding staked amount!");
       }
-      
-    }else{
-
+    } else {
     }
 
     setIsLoading(false);

@@ -11,6 +11,7 @@ import { Mumbai } from "@thirdweb-dev/chains";
 import { AnonAadhaarProvider } from "anon-aadhaar-react";
 
 import AddPost from "./pages/AddPost";
+import Welcome from "./pages/Welcome";
 
 import { ContentPairProvider, LightNodeProvider } from "@waku/react";
 import { Protocols } from "@waku/sdk";
@@ -32,6 +33,10 @@ const NODE_OPTIONS = {
 
 function App() {
   const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Welcome />,
+    },
     {
       path: "/add",
       element: (
