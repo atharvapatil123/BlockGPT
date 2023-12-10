@@ -34,10 +34,10 @@ const Welcome = () => {
             <HomeAppContainer>
                 <AppInfo>
                     <AppLogo>Indie News</AppLogo>
-                    <AppSlogan>A transparent & decentralized news & crime reporting app!</AppSlogan>
+                    <AppSlogan>A transparent & decentralized <br/>news & crime reporting app!</AppSlogan>
                 </AppInfo>
                 <WalletConnectContainer>
-                    <ConnectWallet />
+                    <StyledConnectWallet><ConnectWallet /></StyledConnectWallet>
                 </WalletConnectContainer>
             </HomeAppContainer>
         </HomeContainer>
@@ -51,12 +51,13 @@ const HomeContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: "Noto Sans", sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+    background-image: linear-gradient(#eec5ff, #f8e7ff);
 `;
 
 const HomeAppContainer = styled.div`
     background-image: linear-gradient(#8E44AD, #7e339e);
-    box-shadow: #00000052 5px 5px 30px;
+    box-shadow: #00000052 10px 10px 30px;
     width: max(30%, 400px);
     height: 90%;
     border-radius: 1rem;
@@ -75,13 +76,12 @@ const AppInfo = styled.div`
 
 const AppLogo = styled.div`
     color: white;
-    font-family: "Pacifico", cursive;
     font-size: 4rem;
+    font-weight: bold;
 `;
 
 const AppSlogan = styled.div`
     color: white;
-    font-family: "Pacifico", cursive;
     font-size: 1.5rem;
     text-align: center;
 `;
@@ -91,6 +91,17 @@ const WalletConnectContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+`;
+
+const StyledConnectWallet = styled.div`
+    transition: all 0.5s ease;
+    &:hover {
+        transform: translateY(-2px);
+    }
+    &:active {
+        transition: all 0.1s ease;
+        transform: translateY(4px);
+    }
 `;
 
 export default Welcome;
