@@ -1,10 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import {
-  ThirdwebProvider,
-  metamaskWallet,
-  coinbaseWallet,
-  walletConnect,
+    ThirdwebProvider,
+    metamaskWallet,
+    coinbaseWallet,
+    walletConnect,
 } from "@thirdweb-dev/react";
 
 import { Mumbai } from "@thirdweb-dev/chains";
@@ -32,40 +32,43 @@ const NODE_OPTIONS = {
 };
 
 function App() {
-  const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Welcome />,
-    },
-    {
-      path: "/add",
-      element: (
-          <ContentPairProvider contentTopic="/crime-miners/2/report/0x1234">
-              <AddPost />
-          </ContentPairProvider>
-      ),
-  },
-  ])
-  return (
-    <LightNodeProvider
-            options={NODE_OPTIONS}
-            protocols={[Protocols.LightPush, Protocols.Filter, Protocols.Store]}
-        >
-            <AnonAadhaarProvider _appId={app_id}>
-                <ThirdwebProvider
-                    supportedWallets={[
-                        metamaskWallet(),
-                        coinbaseWallet(),
-                        walletConnect(),
-                    ]}
-                    activeChain={Mumbai}
-                    clientId="2ca083eafd3ceae4cf0dfb62ff3acb5b"
-                >
-                    <RouterProvider router={router}></RouterProvider>
-                </ThirdwebProvider>
-            </AnonAadhaarProvider>
-        </LightNodeProvider>
-  );
+    const router = createBrowserRouter([{
+            path: "/",
+            element: < Welcome / > ,
+        },
+        {
+            path: "/add",
+            element: ( <
+                ContentPairProvider contentTopic = "/crime-miners/2/report/0x1234" >
+                <
+                AddPost / >
+                <
+                /ContentPairProvider>
+            ),
+        },
+    ])
+    return ( <
+        LightNodeProvider options = { NODE_OPTIONS }
+        protocols = {
+            [Protocols.LightPush, Protocols.Filter, Protocols.Store] } >
+        <
+        AnonAadhaarProvider _appId = { app_id } >
+        <
+        ThirdwebProvider supportedWallets = {
+            [
+                metamaskWallet(),
+                coinbaseWallet(),
+                walletConnect(),
+            ]
+        }
+        activeChain = { Mumbai }
+        clientId = "2ca083eafd3ceae4cf0dfb62ff3acb5b" >
+        <
+        RouterProvider router = { router } > < /RouterProvider> <
+        /ThirdwebProvider> <
+        /AnonAadhaarProvider> <
+        /LightNodeProvider>
+    );
 }
 
 export default App;
